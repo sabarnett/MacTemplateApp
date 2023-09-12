@@ -12,7 +12,6 @@ import SwiftUI
 struct TemplateAppApp: App {
 
     @AppStorage("displayMode") var displayMode: DisplayMode = .auto
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
@@ -29,12 +28,7 @@ struct TemplateAppApp: App {
         })
 
         .commands {
-            // Replace the About menu item.
-            CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button("About \(Bundle.main.appName)") {
-                    appDelegate.showAboutWnd()
-                }
-            }
+            Menus()
         }
 
         Settings {
