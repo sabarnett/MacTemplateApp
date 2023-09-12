@@ -1,0 +1,4 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "php@7.4", link: true
+brew "swiftlint", link: false
