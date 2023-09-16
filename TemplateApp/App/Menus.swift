@@ -26,6 +26,12 @@ struct Menus: Commands {
             }
         }
         
+        CommandGroup(before: CommandGroupPlacement.help) {
+            Link(Constants.homeAddress,
+                 destination: Constants.homeUrl)
+            Divider()
+        }
+        
         CommandGroup(after: CommandGroupPlacement.newItem) {
             Button("New from template") {
                 print("New from template")
