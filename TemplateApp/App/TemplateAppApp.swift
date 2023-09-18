@@ -11,11 +11,13 @@ import SwiftUI
 @main
 struct TemplateAppApp: App {
 
+    @State var appState = AppState()
     @AppStorage("displayMode") var displayMode: DisplayMode = .auto
 
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(appState)
                 .onAppear {
                     setDisplayMode()
                 }
@@ -28,7 +30,7 @@ struct TemplateAppApp: App {
         })
 
         .commands {
-            Menus()
+            Menus(appState: appState)
         }
 
         Settings {

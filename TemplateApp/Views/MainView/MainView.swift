@@ -10,9 +10,11 @@ import SwiftUI
 
 struct MainView: View {
 
+    @EnvironmentObject() var appState: AppState
     @StateObject var vm: MainViewModel = MainViewModel()
-
-    var body: some View {
+    @State var windowNumber: Int = 0
+    
+    var body: some View {        
         NavigationSplitView(sidebar: {
             SidebarView(vm: vm)
                 .frame(minWidth: Constants.mainWindowSidebarMinWidth)
@@ -24,6 +26,12 @@ struct MainView: View {
         .navigationTitle(Constants.mainWindowTitle)
 //        .navigationSubtitle("This is a sub-title.")
 
+        HostingWindowFinder { window in
+          if let window = window {
+              self.appState.addWindowAndModel(window: window,
+                                              viewModel: vm)
+          }
+        }.frame(height: 0)
     }
 }
 

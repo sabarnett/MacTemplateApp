@@ -11,8 +11,11 @@ import SwiftUI
 
 struct Menus: Commands {
     
+    @ObservedObject var appState: AppState
+    
     @AppStorage("displayMode") var displayMode: DisplayMode = .auto
     @AppStorage("setting1") var toggle1: Bool = false
+    
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Commands {
@@ -50,14 +53,17 @@ struct Menus: Commands {
         
         CommandMenu("Display") {
             Button("Item 1") {
-                print("Item 1 selected")
+                guard let vm = appState.activeViewModel  else { return }
+                vm.item1MenuClick()
             }
             Button("Item 2") {
-                print("Item 2 selected")
+                guard let vm = appState.activeViewModel else { return }
+                vm.item2MenuClick()
             }
             Divider()
             Button("Item 3") {
-                print("Item 3 selected")
+                guard let vm = appState.activeViewModel else { return }
+                vm.item3MenuClick()
             }
             
             Divider()
