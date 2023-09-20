@@ -29,4 +29,16 @@ extension MainViewModel: MenuHandlerProtocol {
     func item3MenuClick() {
         print("Item 3 click handler called")
     }
+    
+    func isMenuDisabled(_ menuItem: CustomMenuItems) -> Bool {
+        // TODO: Logic to decide whether menu items are disabled
+        switch menuItem {
+        case .menuItem1:
+            return true
+        case .menuItem2:
+            return false
+        case .menuItem3:
+            return false
+        }
+    }
 }

@@ -55,17 +55,19 @@ struct Menus: Commands {
             Button("Item 1") {
                 guard let vm = appState.activeViewModel  else { return }
                 vm.item1MenuClick()
-            }
+            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem1) ?? true)
+            
             Button("Item 2") {
                 guard let vm = appState.activeViewModel else { return }
                 vm.item2MenuClick()
-            }
+            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem2) ?? true)
+            
             Divider()
             Button("Item 3") {
                 guard let vm = appState.activeViewModel else { return }
                 vm.item3MenuClick()
-            }
-            
+            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem3) ?? true)
+
             Divider()
             Toggle(isOn: $toggle1) { Text("Setting 1") }
             

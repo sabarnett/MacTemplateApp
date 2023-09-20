@@ -15,8 +15,8 @@ class AppState: NSObject, ObservableObject {
     private var viewModels: [Int: MenuHandlerProtocol] = [:]
     
     // currently active window and view model
-    public var activeWindow: NSWindow?
-    public var activeViewModel: MenuHandlerProtocol?
+    @Published var activeWindow: NSWindow?
+    @Published var activeViewModel: MenuHandlerProtocol?
     
     // Add a new window and it's view model to the tracking list and
     // since it's a new window, set it as the currently selected window/view model

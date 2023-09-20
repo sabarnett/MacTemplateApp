@@ -12,4 +12,6 @@ protocol MenuHandlerProtocol {
     func item1MenuClick()
     func item2MenuClick()
     func item3MenuClick()
+    
+    func isMenuDisabled(_ menuItem: CustomMenuItems) -> Bool
 }
