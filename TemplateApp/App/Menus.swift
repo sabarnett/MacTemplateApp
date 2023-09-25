@@ -12,10 +12,7 @@ import SwiftUI
 struct Menus: Commands {
     
     @ObservedObject var appState: AppState
-    
-    @AppStorage("displayMode") var displayMode: DisplayMode = .auto
-    @AppStorage("setting1") var toggle1: Bool = false
-    
+
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Commands {
@@ -35,11 +32,7 @@ struct Menus: Commands {
             Divider()
         }
         
-        CommandGroup(after: CommandGroupPlacement.newItem) {
-            Button("New from template") {
-                print("New from template")
-            }
-        }
+        FileCommands()
         
         CommandGroup(before: CommandGroupPlacement.appTermination) {
             Button("Discard Changes") {
@@ -51,6 +44,36 @@ struct Menus: Commands {
             EmptyView()
         }
         
+        DisplayCommands(appState: appState)
+    }
+}
+
+public struct DisplayCommands: Commands {
+    
+    @ObservedObject var appState: AppState
+    
+    @AppStorage("displayMode") var displayMode: DisplayMode = .auto
+    @AppStorage("setting1") var toggle1: Bool = false
+    
+    public var body: some Commands {
+        /* Adding Menu Items
+         
+         Requirements for a new menu item:
+         
+         1. Add a button to the menus file.
+         2. Update the MenuHandlerProtocol file to add a click handler if you
+            expect the view model to handle the click.
+         3. Update the MainViewModel extension to add a click handler.
+         4. Update the CustomMenuItems enum file to add an id for the new menu
+            item if you expect to view model to be able to eable/disable the menu item.
+         5. Update the MainViewModel extension to handle enabling/disabling the menu item.
+         
+         Files to update:
+         * Menus.swift
+         * MenuHandlerProtocol.swift
+         * MainViewModel.swift
+         
+         */
         CommandMenu("Display") {
             Button("Item 1") {
                 guard let vm = appState.activeViewModel  else { return }
@@ -79,6 +102,39 @@ struct Menus: Commands {
             }, label: {
                 Text("Display mode")
             })
+        }
+    }
+}
+
+public struct FileCommands: Commands {
+
+    public var body: some Commands {
+
+        CommandGroup(before: CommandGroupPlacement.newItem) {
+            Button("Open") {
+                print("Open a file")
+            }
+            Divider()
+        }
+    
+        CommandGroup(after: CommandGroupPlacement.newItem) {
+            Button("New from template") {
+                print("New from template")
+            }
+        }
+
+        CommandGroup(after: CommandGroupPlacement.newItem) {
+            Divider()
+            Button("Save-As") {
+                print("Save a file as")
+            }
+        }
+        
+        CommandGroup(after: CommandGroupPlacement.newItem) {
+            Divider()
+            Button("Select Filder") {
+                print("Select a folder")
+            }
         }
     }
 }
