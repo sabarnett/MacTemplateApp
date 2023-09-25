@@ -112,7 +112,11 @@ public struct FileCommands: Commands {
 
         CommandGroup(before: CommandGroupPlacement.newItem) {
             Button("Open") {
-                print("Open a file")
+                if let selectedFile = FileHelpers.selectSingleImageFile(withTitle: "Selecvt an image") {
+                    print("You selected: \(selectedFile)")
+                } else {
+                    print("You cancelled the open request.")
+                }
             }
             Divider()
         }

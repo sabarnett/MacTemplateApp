@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E80B8D142A8BB1D8000F361A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B8D132A8BB1D8000F361A /* AppDelegate.swift */; };
 		E81519CD2AB5F84200783E40 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81519CC2AB5F84200783E40 /* AppState.swift */; };
+		E81A2A812AC1B1D000965A2A /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A2A802AC1B1D000965A2A /* FileHelpers.swift */; };
 		E83310432A938BED0067C504 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83310422A938BED0067C504 /* SettingsViewModel.swift */; };
 		E8345E5A2A910B1400E36B82 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8345E592A910B1400E36B82 /* SettingsView.swift */; };
 		E879067E2A88E13400259501 /* TemplateAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879067D2A88E13400259501 /* TemplateAppApp.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		E80B8D132A8BB1D8000F361A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E81519CC2AB5F84200783E40 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E81A2A802AC1B1D000965A2A /* FileHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelpers.swift; sourceTree = "<group>"; };
 		E83310422A938BED0067C504 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E8345E592A910B1400E36B82 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E879067A2A88E13400259501 /* Mac Template App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Template App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E81A2A7F2AC1B1B800965A2A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E81A2A802AC1B1D000965A2A /* FileHelpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E87906712A88E13400259501 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		E879067C2A88E13400259501 /* TemplateApp */ = {
 			isa = PBXGroup;
 			children = (
+				E81A2A7F2AC1B1B800965A2A /* Utilities */,
 				E8C78BB32AB73F7300E532FA /* Protocols */,
 				E8EA24622AACA7D6001210F4 /* Enumerations */,
 				E8F30B9C2A8FB1CA005D41E7 /* Extensions */,
@@ -210,7 +221,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					E87906792A88E13400259501 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -280,6 +291,7 @@
 				E8F30BA32A8FB411005D41E7 /* AboutView.swift in Sources */,
 				E8EA24642AACA7F5001210F4 /* DisplayMode.swift in Sources */,
 				E893853D2AA22BA100D225F5 /* DetailView.swift in Sources */,
+				E81A2A812AC1B1D000965A2A /* FileHelpers.swift in Sources */,
 				E8F30BA02A8FB1E7005D41E7 /* Bundle+Extensions.swift in Sources */,
 				E81519CD2AB5F84200783E40 /* AppState.swift in Sources */,
 				E8C78BB52AB73F8A00E532FA /* MenuHandlerProtocol.swift in Sources */,
@@ -330,6 +342,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -390,6 +403,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -419,6 +433,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TemplateApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MH62Y8D74P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -446,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TemplateApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MH62Y8D74P;
 				ENABLE_HARDENED_RUNTIME = YES;
