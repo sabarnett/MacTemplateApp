@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8040BB92AC35CFE00A164BB /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8040BB82AC35CFE00A164BB /* UTType+Extensions.swift */; };
 		E80B8D142A8BB1D8000F361A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B8D132A8BB1D8000F361A /* AppDelegate.swift */; };
 		E81519CD2AB5F84200783E40 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81519CC2AB5F84200783E40 /* AppState.swift */; };
 		E81A2A812AC1B1D000965A2A /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A2A802AC1B1D000965A2A /* FileHelpers.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E8040BB82AC35CFE00A164BB /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
 		E80B8D132A8BB1D8000F361A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E81519CC2AB5F84200783E40 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E81A2A802AC1B1D000965A2A /* FileHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelpers.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F30B9F2A8FB1E7005D41E7 /* Bundle+Extensions.swift */,
+				E8040BB82AC35CFE00A164BB /* UTType+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				E8345E5A2A910B1400E36B82 /* SettingsView.swift in Sources */,
 				E8C78BB22AB73F1900E532FA /* HostingViewFinder.swift in Sources */,
 				E80B8D142A8BB1D8000F361A /* AppDelegate.swift in Sources */,
+				E8040BB92AC35CFE00A164BB /* UTType+Extensions.swift in Sources */,
 				E8F30BA32A8FB411005D41E7 /* AboutView.swift in Sources */,
 				E8EA24642AACA7F5001210F4 /* DisplayMode.swift in Sources */,
 				E893853D2AA22BA100D225F5 /* DetailView.swift in Sources */,
@@ -439,6 +443,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mac-Template-App-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) Steven Barnett";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -467,6 +472,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mac-Template-App-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) Steven Barnett";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

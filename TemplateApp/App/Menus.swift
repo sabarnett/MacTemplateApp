@@ -112,7 +112,7 @@ public struct FileCommands: Commands {
 
         CommandGroup(before: CommandGroupPlacement.newItem) {
             Button("Open") {
-                if let selectedFile = FileHelpers.selectSingleImageFile(withTitle: "Selecvt an image") {
+                if let selectedFile = FileHelpers.selectSingleDataFile(withTitle: "Select a data file") {
                     print("You selected: \(selectedFile)")
                 } else {
                     print("You cancelled the open request.")
@@ -130,14 +130,22 @@ public struct FileCommands: Commands {
         CommandGroup(after: CommandGroupPlacement.newItem) {
             Divider()
             Button("Save-As") {
-                print("Save a file as")
+                if let saveFile = FileHelpers.selectImageFileToSave(withTitle: "Save image to...") {
+                    print("Save the file to: \(saveFile)")
+                } else {
+                    print("You cancelled the save-as prompt.")
+                }
             }
         }
         
         CommandGroup(after: CommandGroupPlacement.newItem) {
             Divider()
             Button("Select Filder") {
-                print("Select a folder")
+                if let selectedFolder = FileHelpers.selectFolder() {
+                    print("Selected folder: \(selectedFolder)")
+                } else {
+                    print("You cancelled the folder selection prompt")
+                }
             }
         }
     }
