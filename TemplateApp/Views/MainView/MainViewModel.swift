@@ -31,7 +31,6 @@ extension MainViewModel: MenuHandlerProtocol {
     }
     
     func isMenuDisabled(_ menuItem: CustomMenuItems) -> Bool {
-        // TODO: Logic to decide whether menu items are disabled
         switch menuItem {
         case .menuItem1:
             return true
