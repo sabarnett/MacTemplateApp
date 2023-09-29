@@ -102,6 +102,15 @@ public struct DisplayCommands: Commands {
             }, label: {
                 Text("Display mode")
             })
+            
+            Divider()
+            Button("Refresh All") {
+                let notificationName = Notification.Name(AppNotifications.RefreshAllNotification)
+                let notification = Notification(name: notificationName,
+                                                object: nil,
+                                                userInfo: nil)
+                NotificationCenter.default.post(notification)
+            }
         }
     }
 }

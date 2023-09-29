@@ -29,6 +29,7 @@
 		E8EA24642AACA7F5001210F4 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EA24632AACA7F5001210F4 /* DisplayMode.swift */; };
 		E8F30BA02A8FB1E7005D41E7 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F30B9F2A8FB1E7005D41E7 /* Bundle+Extensions.swift */; };
 		E8F30BA32A8FB411005D41E7 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F30BA22A8FB411005D41E7 /* AboutView.swift */; };
+		E8F88BBC2AC42F040072B972 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F88BBB2AC42F040072B972 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		E8EA24632AACA7F5001210F4 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		E8F30B9F2A8FB1E7005D41E7 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		E8F30BA22A8FB411005D41E7 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		E8F88BBB2AC42F040072B972 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				E81A2A802AC1B1D000965A2A /* FileHelpers.swift */,
+				E8F88BBB2AC42F040072B972 /* Notifications.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E89800302A8BC59000AE8656 /* Constants.swift in Sources */,
 				E893853B2AA22B9200D225F5 /* SidebarView.swift in Sources */,
 				E87906802A88E13400259501 /* MainView.swift in Sources */,
+				E8F88BBC2AC42F040072B972 /* Notifications.swift in Sources */,
 				E879067E2A88E13400259501 /* TemplateAppApp.swift in Sources */,
 				E88552A22AB0E80D00740562 /* Menus.swift in Sources */,
 				E83310432A938BED0067C504 /* SettingsViewModel.swift in Sources */,

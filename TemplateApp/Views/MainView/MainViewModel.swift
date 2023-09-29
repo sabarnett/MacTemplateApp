@@ -13,6 +13,37 @@ class MainViewModel: ObservableObject {
     @Published var items: [String] = ["Mabel", "Morag", "Marcia"]
     @Published var selectedItem: String = ""
 
+    private var refreshObserver: Any?
+    
+    init() {
+        initialiseRefreshListener()
+    }
+    
+    func reset() {
+        if let observerObject = refreshObserver {
+            NotificationCenter.default.removeObserver(observerObject)
+        }
+    }
+}
+
+extension MainViewModel {
+    
+    func initialiseRefreshListener() {
+        
+        refreshObserver = NotificationCenter.default.addObserver(
+            forName: Notification.Name(AppNotifications.RefreshAllNotification),
+            object: nil,
+            queue: nil,
+            using: { (_) in
+                DispatchQueue.main.async {
+                    self.refreshAll()
+                }
+            })
+    }
+    
+    func refreshAll() {
+        print("Refresh all notification received")
+    }
 }
 
 // Handlers for the menus we added.
@@ -20,14 +51,17 @@ extension MainViewModel: MenuHandlerProtocol {
     
     func item1MenuClick() {
         print("Item 1 click handler called")
+        selectedItem = items[0]
     }
     
     func item2MenuClick() {
         print("Item 2 click handler called")
+        selectedItem = items[1]
     }
     
     func item3MenuClick() {
         print("Item 3 click handler called")
+        selectedItem = items[2]
     }
     
     func isMenuDisabled(_ menuItem: CustomMenuItems) -> Bool {

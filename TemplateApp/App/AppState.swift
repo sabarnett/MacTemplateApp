@@ -2,7 +2,7 @@
 // File: AppState.swift
 // Package: Mac Template App
 // Created by: Steven Barnett on 16/09/2023
-// 
+//
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
@@ -10,42 +10,61 @@ import SwiftUI
 
 class AppState: NSObject, ObservableObject {
     
-    // all currently opened windows and their view models
-    private var windows = Set<NSWindow>()
+    // All registered view models, indexed by their window number
     private var viewModels: [Int: MenuHandlerProtocol] = [:]
     
-    // currently active window and view model
-    @Published var activeWindow: NSWindow?
+    // Currently active view model
     @Published var activeViewModel: MenuHandlerProtocol?
     
-    // Add a new window and it's view model to the tracking list and
-    // since it's a new window, set it as the currently selected window/view model
-    func addWindowAndModel(window: NSWindow, viewModel: MenuHandlerProtocol) {
-        window.delegate = self
-        windows.insert(window)
+    override init() {
+        super.init()
         
-        let windowNumber = window.windowNumber
-        viewModels[windowNumber] = viewModel
-        
-        activeViewModel = viewModels[windowNumber]
-        activeWindow = windows.first(where: { win in win.windowNumber == windowNumber})
-    }
-}
-
-extension AppState: NSWindowDelegate {
-    // When we close a window, make sure it's removed from the tracking list
-    func windowWillClose(_ notification: Notification) {
-        guard let window = notification.object as? NSWindow else { return }
-
-        windows.remove(window)
-        viewModels.removeValue(forKey: window.windowNumber)
+        // Setup subscription for windowWillClose notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(removeViewModel),
+                                               name: NSWindow.willCloseNotification,
+                                               object: nil)
+     
+        // Setup subscription for didBecomeKey notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(windowBecameKey),
+                                               name: NSWindow.didBecomeKeyNotification,
+                                               object: nil)
     }
     
-    // When a window becomes active, make sure we update the current window/view model
-    func windowDidBecomeKey(_ notification: Notification) {
-        guard let window = notification.object as? NSWindow else { return }
+    @objc
+    /// Removes a view model from our set of view models when the window is closed. This
+    /// releases reference so the view and it's view model can be deleted correctly.
+    /// - Parameter message: The notification message. The object property
+    ///     will be the NSWindow that was closed.
+    func removeViewModel(message: NSNotification) {
+        guard let win = message.object as? NSWindow,
+              viewModels[win.windowNumber] != nil
+        else { return }
         
-        activeWindow = window
-        activeViewModel = viewModels[window.windowNumber]
+        activeViewModel = nil
+        viewModels.removeValue(forKey: win.windowNumber)
+    }
+    
+    @objc
+    /// A window has become active. If it's one of our registered windows, then we need
+    /// to make it's view model the currently active view model.
+    /// - Parameter message: The notification message. The object property
+    ///             will be the NSWindow that became active.
+    func windowBecameKey(message: NSNotification) {
+        guard let win = message.object as? NSWindow,
+              viewModels[win.windowNumber] != nil
+        else { return }
+        
+        activeViewModel = viewModels[win.windowNumber]
+    }
+    
+    // Add a new view model to the tracking list and, since it's a new
+    // window, set it as the currently selected view model
+    func addWindowAndModel(window: NSWindow, viewModel: MenuHandlerProtocol) {
+        let windowNumber = window.windowNumber
+        
+        viewModels[windowNumber] = viewModel
+        activeViewModel = viewModel
     }
 }

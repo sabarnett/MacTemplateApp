@@ -14,7 +14,7 @@ struct MainView: View {
     @StateObject var vm: MainViewModel = MainViewModel()
     @State var windowNumber: Int = 0
     
-    var body: some View {        
+    var body: some View {
         NavigationSplitView(sidebar: {
             SidebarView(vm: vm)
                 .frame(minWidth: Constants.mainWindowSidebarMinWidth)
@@ -25,13 +25,23 @@ struct MainView: View {
                minHeight: Constants.mainWindowMinHeight)
         .navigationTitle(Constants.mainWindowTitle)
 //        .navigationSubtitle("This is a sub-title.")
-
+        
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { newValue in
+            guard let win = newValue.object as? NSWindow,
+                  win.windowNumber == windowNumber
+            else { return }
+                
+            vm.reset()
+        }
+        
         HostingWindowFinder { window in
           if let window = window {
               self.appState.addWindowAndModel(window: window,
                                               viewModel: vm)
+              windowNumber = window.windowNumber
           }
         }.frame(height: 0)
+        
     }
 }
 
