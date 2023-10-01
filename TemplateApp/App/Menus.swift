@@ -11,8 +11,6 @@ import SwiftUI
 
 struct Menus: Commands {
     
-    @ObservedObject var appState: AppState
-
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Commands {
@@ -44,13 +42,13 @@ struct Menus: Commands {
             EmptyView()
         }
         
-        DisplayCommands(appState: appState)
+        DisplayCommands()
     }
 }
 
 public struct DisplayCommands: Commands {
     
-    @ObservedObject var appState: AppState
+    @FocusedObject private var menuHandlers: MainViewModel?
     
     @AppStorage("displayMode") var displayMode: DisplayMode = .auto
     @AppStorage("setting1") var toggle1: Bool = false
@@ -76,20 +74,17 @@ public struct DisplayCommands: Commands {
          */
         CommandMenu("Display") {
             Button("Item 1") {
-                guard let vm = appState.activeViewModel  else { return }
-                vm.item1MenuClick()
-            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem1) ?? true)
-            
+                menuHandlers?.item1MenuClick()
+            }.disabled(menuHandlers?.isMenuDisabled(.menuItem1) ?? true)
+
             Button("Item 2") {
-                guard let vm = appState.activeViewModel else { return }
-                vm.item2MenuClick()
-            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem2) ?? true)
-            
+                menuHandlers?.item2MenuClick()
+            }.disabled(menuHandlers?.isMenuDisabled(.menuItem2) ?? true)
+
             Divider()
             Button("Item 3") {
-                guard let vm = appState.activeViewModel else { return }
-                vm.item3MenuClick()
-            }.disabled(appState.activeViewModel?.isMenuDisabled(.menuItem3) ?? true)
+                menuHandlers?.item3MenuClick()
+            }.disabled(menuHandlers?.isMenuDisabled(.menuItem3) ?? true)
 
             Divider()
             Toggle(isOn: $toggle1) { Text("Setting 1") }
@@ -149,7 +144,7 @@ public struct FileCommands: Commands {
         
         CommandGroup(after: CommandGroupPlacement.newItem) {
             Divider()
-            Button("Select Filder") {
+            Button("Select Folder") {
                 if let selectedFolder = FileHelpers.selectFolder() {
                     print("Selected folder: \(selectedFolder)")
                 } else {

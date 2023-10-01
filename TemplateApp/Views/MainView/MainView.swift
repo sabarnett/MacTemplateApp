@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MainView: View {
 
-    @EnvironmentObject() var appState: AppState
     @StateObject var vm: MainViewModel = MainViewModel()
     @State var windowNumber: Int = 0
     
@@ -24,6 +23,7 @@ struct MainView: View {
         .frame(minWidth: Constants.mainWindowMinWidth,
                minHeight: Constants.mainWindowMinHeight)
         .navigationTitle(Constants.mainWindowTitle)
+        .focusedSceneObject(vm)
 //        .navigationSubtitle("This is a sub-title.")
         
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { newValue in
@@ -31,13 +31,11 @@ struct MainView: View {
                   win.windowNumber == windowNumber
             else { return }
                 
-            vm.reset()
+           vm.reset()
         }
         
         HostingWindowFinder { window in
           if let window = window {
-              self.appState.addWindowAndModel(window: window,
-                                              viewModel: vm)
               windowNumber = window.windowNumber
           }
         }.frame(height: 0)

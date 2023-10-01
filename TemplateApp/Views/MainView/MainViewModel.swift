@@ -8,17 +8,18 @@
 
 import Foundation
 
-class MainViewModel: ObservableObject {
+class MainViewModel: ObservableObject, Identifiable {
+    var id: UUID = UUID()
 
     @Published var items: [String] = ["Mabel", "Morag", "Marcia"]
     @Published var selectedItem: String = ""
 
-    private var refreshObserver: Any?
+    weak var refreshObserver: NSObjectProtocol?
     
     init() {
         initialiseRefreshListener()
     }
-    
+
     func reset() {
         if let observerObject = refreshObserver {
             NotificationCenter.default.removeObserver(observerObject)
