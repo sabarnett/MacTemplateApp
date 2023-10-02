@@ -35,7 +35,13 @@ extension MainViewModel {
             forName: Notification.Name(AppNotifications.RefreshAllNotification),
             object: nil,
             queue: nil,
-            using: { (_) in
+            using: { (userData) in
+                if let userInfo = userData.userInfo as NSDictionary? as! [String: String]? {
+                    print("Sender: \(userInfo["sender"]!)")
+                    print("Target: \(userInfo["target"]!)")
+                    print("Filter: \(userInfo["filter"]!)")
+                }
+                
                 DispatchQueue.main.async {
                     self.refreshAll()
                 }

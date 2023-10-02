@@ -100,10 +100,16 @@ public struct DisplayCommands: Commands {
             
             Divider()
             Button("Refresh All") {
+                let userData: [AnyHashable: Any] = [
+                    "sender": "Sender id",
+                    "target": "Target id",
+                    "filter": ""
+                ]
+                
                 let notificationName = Notification.Name(AppNotifications.RefreshAllNotification)
                 let notification = Notification(name: notificationName,
                                                 object: nil,
-                                                userInfo: nil)
+                                                userInfo: userData)
                 NotificationCenter.default.post(notification)
             }
         }
