@@ -10,6 +10,7 @@
 		E8040BB92AC35CFE00A164BB /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8040BB82AC35CFE00A164BB /* UTType+Extensions.swift */; };
 		E80B8D142A8BB1D8000F361A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80B8D132A8BB1D8000F361A /* AppDelegate.swift */; };
 		E81A2A812AC1B1D000965A2A /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A2A802AC1B1D000965A2A /* FileHelpers.swift */; };
+		E82BDD262ACB5013004797E9 /* WriteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82BDD252ACB5013004797E9 /* WriteLog.swift */; };
 		E83310432A938BED0067C504 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83310422A938BED0067C504 /* SettingsViewModel.swift */; };
 		E8345E5A2A910B1400E36B82 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8345E592A910B1400E36B82 /* SettingsView.swift */; };
 		E879067E2A88E13400259501 /* TemplateAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879067D2A88E13400259501 /* TemplateAppApp.swift */; };
@@ -35,6 +36,7 @@
 		E8040BB82AC35CFE00A164BB /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
 		E80B8D132A8BB1D8000F361A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E81A2A802AC1B1D000965A2A /* FileHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelpers.swift; sourceTree = "<group>"; };
+		E82BDD252ACB5013004797E9 /* WriteLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteLog.swift; sourceTree = "<group>"; };
 		E83310422A938BED0067C504 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E8345E592A910B1400E36B82 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E879067A2A88E13400259501 /* Mac Template App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Template App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 		E8C78BB02AB73F0900E532FA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E82BDD252ACB5013004797E9 /* WriteLog.swift */,
 				E8C78BB12AB73F1900E532FA /* HostingViewFinder.swift */,
 			);
 			path = Helpers;
@@ -305,6 +308,7 @@
 				E879067E2A88E13400259501 /* TemplateAppApp.swift in Sources */,
 				E88552A22AB0E80D00740562 /* Menus.swift in Sources */,
 				E83310432A938BED0067C504 /* SettingsViewModel.swift in Sources */,
+				E82BDD262ACB5013004797E9 /* WriteLog.swift in Sources */,
 				E8CD080E2AAE229300436631 /* UserExperience.swift in Sources */,
 				E8DBC7F12AAA0CB400EC3559 /* MainViewModel.swift in Sources */,
 			);

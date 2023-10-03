@@ -17,11 +17,14 @@ class MainViewModel: ObservableObject, Identifiable {
     weak var refreshObserver: NSObjectProtocol?
     
     init() {
+        WriteLog.info("MainViewModel initialising")
         initialiseRefreshListener()
     }
 
     func reset() {
+        WriteLog.info("Reset function called")
         if let observerObject = refreshObserver {
+            WriteLog.info("Observer being removed")
             NotificationCenter.default.removeObserver(observerObject)
         }
     }
@@ -49,6 +52,7 @@ extension MainViewModel {
     }
     
     func refreshAll() {
+        WriteLog.success("Refresh All menu item handled")
         print("Refresh all notification received")
     }
 }
@@ -57,17 +61,17 @@ extension MainViewModel {
 extension MainViewModel: MenuHandlerProtocol {
     
     func item1MenuClick() {
-        print("Item 1 click handler called")
+        WriteLog.debug("Item 1 click handler called")
         selectedItem = items[0]
     }
     
     func item2MenuClick() {
-        print("Item 2 click handler called")
+        WriteLog.debug("Item 2 click handler called")
         selectedItem = items[1]
     }
     
     func item3MenuClick() {
-        print("Item 3 click handler called")
+        WriteLog.debug("Item 3 click handler called")
         selectedItem = items[2]
     }
     
