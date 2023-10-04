@@ -14,6 +14,8 @@ struct MainView: View {
     @State var windowNumber: Int = 0
     
     var body: some View {
+        var _ = WriteLog.debug("windowNumber: \(windowNumber)")
+
         NavigationSplitView(sidebar: {
             SidebarView(vm: vm)
                 .frame(minWidth: Constants.mainWindowSidebarMinWidth)

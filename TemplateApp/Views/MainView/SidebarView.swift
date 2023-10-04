@@ -15,6 +15,7 @@ struct SidebarView: View {
     var body: some View {
         VStack {
             toolbarIcons()
+            var _ = WriteLog.debug("itemCount: \(vm.items.count)")
 
             List(vm.items, id: \.self) { item in
                 Text(item)
