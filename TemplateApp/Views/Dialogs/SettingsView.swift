@@ -137,15 +137,12 @@ struct SettingsLine<Content: View>: View {
 
     var body: some View {
         HStack {
-            HStack(alignment: .top) {
-                Spacer()
-                Text(label)
-            }
-            .frame(width: Constants.settingsWindowLabelWidth)
+            Text(label)
+                .frame(width: Constants.settingsWindowLabelWidth, alignment: .topTrailing)
 
             HStack {
                 content()
-                Spacer()
+                    .padding(.trailing, 16)
             }
         }
         .frame(width: Constants.settingsWindowWidth)
