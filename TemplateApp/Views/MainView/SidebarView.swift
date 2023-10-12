@@ -17,7 +17,7 @@ struct SidebarView: View {
             toolbarIcons()
             var _ = WriteLog.debug("itemCount: \(vm.items.count)")
 
-            List(vm.items, id: \.self) { item in
+            List(vm.items, id: \.self, selection: $vm.selectedItem) { item in
                 Text(item)
                     .onTapGesture {
                         vm.selectedItem = item

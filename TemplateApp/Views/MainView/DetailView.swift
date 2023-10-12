@@ -16,6 +16,15 @@ struct DetailView: View {
         VStack {
             Text("Detail for")
             Text(vm.selectedItem)
+                .contextMenu(ContextMenu(menuItems: {
+                    Button("Copy to clipboard") {
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(vm.selectedItem, forType: .string)
+                    }
+                    Button("Clear selection") {
+                        vm.selectedItem = ""
+                    }
+                }))
         }
         .toolbar(content: {
             ToolbarItem(placement: .navigation) {
