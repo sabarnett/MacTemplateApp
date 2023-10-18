@@ -57,6 +57,26 @@ extension MainViewModel {
     }
 }
 
+extension MainViewModel {
+    // Pasteboard handlers
+    
+    func copyToPasteBoard() {
+        PasteBoard.push(selectedItem)
+    }
+    
+    func clearPasteBoard() {
+        PasteBoard.clear()
+    }
+
+    func getFromPasteBoard() -> String {
+        PasteBoard.pop() ?? ""
+    }
+    
+    func hasTextValue() -> Bool {
+        PasteBoard.contains(type: .string)
+    }
+}
+
 // Handlers for the menus we added.
 extension MainViewModel: MenuHandlerProtocol {
     

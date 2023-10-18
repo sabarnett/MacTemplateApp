@@ -13,6 +13,7 @@
 		E82BDD262ACB5013004797E9 /* WriteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82BDD252ACB5013004797E9 /* WriteLog.swift */; };
 		E83310432A938BED0067C504 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83310422A938BED0067C504 /* SettingsViewModel.swift */; };
 		E8345E5A2A910B1400E36B82 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8345E592A910B1400E36B82 /* SettingsView.swift */; };
+		E858D4132ADAD3EA0001FA3B /* PasteBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858D4122ADAD3EA0001FA3B /* PasteBoard.swift */; };
 		E879067E2A88E13400259501 /* TemplateAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879067D2A88E13400259501 /* TemplateAppApp.swift */; };
 		E87906802A88E13400259501 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E879067F2A88E13400259501 /* MainView.swift */; };
 		E87906822A88E13400259501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87906812A88E13400259501 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		E82BDD252ACB5013004797E9 /* WriteLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteLog.swift; sourceTree = "<group>"; };
 		E83310422A938BED0067C504 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E8345E592A910B1400E36B82 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E858D4122ADAD3EA0001FA3B /* PasteBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBoard.swift; sourceTree = "<group>"; };
 		E879067A2A88E13400259501 /* Mac Template App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac Template App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E879067D2A88E13400259501 /* TemplateAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateAppApp.swift; sourceTree = "<group>"; };
 		E879067F2A88E13400259501 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				E82BDD252ACB5013004797E9 /* WriteLog.swift */,
 				E8C78BB12AB73F1900E532FA /* HostingViewFinder.swift */,
+				E858D4122ADAD3EA0001FA3B /* PasteBoard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E858D4132ADAD3EA0001FA3B /* PasteBoard.swift in Sources */,
 				E8B8211A2ABB225100E7EF7D /* CustomMenuItems.swift in Sources */,
 				E8345E5A2A910B1400E36B82 /* SettingsView.swift in Sources */,
 				E8C78BB22AB73F1900E532FA /* HostingViewFinder.swift in Sources */,
