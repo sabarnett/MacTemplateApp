@@ -88,6 +88,19 @@ extension MainViewModel: MenuHandlerProtocol {
     func item2MenuClick() {
         WriteLog.debug("Item 2 click handler called")
         selectedItem = items[1]
+//        Alerts.message1()
+        
+//        if Alerts.areYouSure() == .yes {
+//            print("You replied Yes")
+//        } else {
+//            print("You replied No")
+//        }
+//        
+        if Alerts.deletePrompt(selectedItem: selectedItem) == .delete {
+            print("Delete the selected item")
+        } else {
+            print("Phew, they cancelled so we're keeping it!")
+        }
     }
     
     func item3MenuClick() {
