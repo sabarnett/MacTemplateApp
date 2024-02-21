@@ -25,6 +25,11 @@ publishing it, so that's all good.
 I intend to update this on a regular basis. The document may lag behind the code just because it's easier
 to push the code than it is to re-generate the document. Sorry about that.
 
+### Feb 2024
+I have extended the Notifications section to simplify the code and to remove the boilerplate
+that we added to define the notification handler and the cleanup code. This has been replaced with the onReceive
+modifier, forcing the SwiftUI engine to do the heavy lifting for us. I have also extended the Notifications struct
+to provide computed properties that simplify the code in the view greatly. 
 
 
 

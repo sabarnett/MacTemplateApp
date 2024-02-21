@@ -13,44 +13,17 @@ class MainViewModel: ObservableObject, Identifiable {
 
     @Published var items: [String] = ["Mabel", "Morag", "Marcia"]
     @Published var selectedItem: String = ""
-
-    weak var refreshObserver: NSObjectProtocol?
     
     init() {
         WriteLog.info("MainViewModel initialising")
-        initialiseRefreshListener()
     }
 
     func reset() {
         WriteLog.info("Reset function called")
-        if let observerObject = refreshObserver {
-            WriteLog.info("Observer being removed")
-            NotificationCenter.default.removeObserver(observerObject)
-        }
     }
 }
 
 extension MainViewModel {
-    
-    func initialiseRefreshListener() {
-        
-        refreshObserver = NotificationCenter.default.addObserver(
-            forName: Notification.Name(AppNotifications.RefreshAllNotification),
-            object: nil,
-            queue: nil,
-            using: { (userData) in
-                if let userInfo = userData.userInfo as NSDictionary? as! [String: String]? {
-                    print("Sender: \(userInfo["sender"]!)")
-                    print("Target: \(userInfo["target"]!)")
-                    print("Filter: \(userInfo["filter"]!)")
-                }
-                
-                DispatchQueue.main.async {
-                    self.refreshAll()
-                }
-            })
-    }
-    
     func refreshAll() {
         WriteLog.success("Refresh All menu item handled")
         print("Refresh all notification received")
@@ -119,3 +92,22 @@ extension MainViewModel: MenuHandlerProtocol {
         }
     }
 }
+
+//    func initialiseRefreshListener() {
+//
+//        refreshObserver = NotificationCenter.default.addObserver(
+//            forName: Notification.Name(AppNotifications.RefreshAllNotification),
+//            object: nil,
+//            queue: nil,
+//            using: { (userData) in
+//                if let userInfo = userData.userInfo as NSDictionary? as! [String: String]? {
+//                    print("Sender: \(userInfo["sender"]!)")
+//                    print("Target: \(userInfo["target"]!)")
+//                    print("Filter: \(userInfo["filter"]!)")
+//                }
+//
+//                DispatchQueue.main.async {
+//                    self.refreshAll()
+//                }
+//            })
+//    }

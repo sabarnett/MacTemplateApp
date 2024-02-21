@@ -28,12 +28,24 @@ struct MainView: View {
         .focusedSceneObject(vm)
 //        .navigationSubtitle("This is a sub-title.")
         
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { newValue in
+        .onReceive(AppNotifications.refreshAll) { params in
+            if let userData: [AnyHashable: Any] = params.userInfo {
+                for keyValue in userData {
+                    let _ = WriteLog.debug("Key:",
+                                           keyValue.key,
+                                           ", Value:",
+                                           keyValue.value)
+                }
+            }
+            vm.refreshAll()
+        }
+        
+        .onReceive(SysNotifications.willClose) { newValue in
             guard let win = newValue.object as? NSWindow,
                   win.windowNumber == windowNumber
             else { return }
-                
-           vm.reset()
+            
+            vm.reset()
         }
         
         HostingWindowFinder { window in

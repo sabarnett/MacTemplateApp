@@ -7,7 +7,20 @@
 //
 
 import Foundation
+import AppKit
 
 struct AppNotifications {
     static let RefreshAllNotification: String = "refreshAllNotification"
+    
+    static var refreshAll: NotificationCenter.Publisher {
+        NotificationCenter.default.publisher(for:
+            Notification.Name(rawValue:
+                AppNotifications.RefreshAllNotification))
+    }
+}
+
+struct SysNotifications {
+    static var willClose: NotificationCenter.Publisher {
+        NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)
+    }
 }
